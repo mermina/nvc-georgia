@@ -10,6 +10,4 @@ kind:
 when:
   en: Date to be added
   ka: თარიღი დასამატებელია
-image: img/2.jpg
-link: https://www.cnvc.org/
 ---
