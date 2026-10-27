@@ -1,7 +1,19 @@
 # Pages CMS configuration — https://pagescms.org/docs/configuration/
 media:
+- name: images
+  label: Photos
   input: img
   output: img
+  categories:
+  - image
+- name: files
+  label: Documents
+  input: files
+  output: files
+  categories:
+  - document
+  - image
+  - spreadsheet
 content:
 - name: home
   label: Home page
@@ -48,7 +60,10 @@ content:
       fields:
       - {name: en, label: English, type: string}
       - {name: ka, label: ქართული (Georgian), type: string}
-    - {name: photo, label: Photo, type: image}
+    - name: photo
+      label: Photo
+      type: image
+      options: {media: images}
     - {name: photo_alt, label: Photo description (for screen readers), type: string}
   - name: about
     label: About NVC
@@ -95,7 +110,10 @@ content:
     label: Who we are
     type: object
     fields:
-    - {name: photo, label: Group photo, type: image}
+    - name: photo
+      label: Group photo
+      type: image
+      options: {media: images}
     - {name: photo_alt, label: Photo description, type: string}
     - name: kicker
       label: Small label
@@ -146,6 +164,7 @@ content:
   format: yaml-frontmatter
   filename: '{year}-{month}-{day}-{hour}{minute}{second}.md'
   view:
+    primary: name.en
     fields:
     - name.en
     - order
@@ -158,8 +177,12 @@ content:
     fields:
     - {name: en, label: English, type: string}
     - {name: ka, label: ქართული (Georgian), type: string}
-  - {name: order, label: Order (smaller number = shown first), type: number}
-  - {name: photo, label: Photo, type: image, description: 'Portrait, ideally at least 800 px wide'}
+  - {name: order, label: Order (1 = shown first), type: number, description: '1, 2, 3 … To put something in between, use e.g. 2.5'}
+  - name: photo
+    label: Photo
+    type: image
+    description: Portrait, ideally at least 800 px wide
+    options: {media: images}
   - name: role
     label: Role / titles
     type: object
@@ -179,7 +202,7 @@ content:
     - {name: en, label: English, type: text}
     - {name: ka, label: ქართული (Georgian), type: text}
   - name: links
-    label: Links (e.g. own website, profile)
+    label: Personal website / profile links (shown as buttons)
     type: object
     list: true
     fields:
@@ -201,7 +224,10 @@ content:
     fields:
     - {name: en, label: English, type: string}
     - {name: ka, label: ქართული (Georgian), type: string}
-  - {name: banner, label: Banner photo (optional – leave empty for the plain header), type: image}
+  - name: banner
+    label: Banner photo (optional – leave empty for the plain header)
+    type: image
+    options: {media: images}
   - {name: banner_alt, label: Banner description, type: string}
   - name: intro
     label: Intro line
@@ -225,7 +251,10 @@ content:
       fields:
       - {name: en, label: English, type: string}
       - {name: ka, label: ქართული (Georgian), type: string}
-    - {name: image, label: Section photo, type: image}
+    - name: image
+      label: Section photo
+      type: image
+      options: {media: images}
     - {name: image_alt, label: Photo description, type: string}
   - name: learn
     label: 'Section 2: Learn more'
@@ -243,7 +272,10 @@ content:
       fields:
       - {name: en, label: English, type: string}
       - {name: ka, label: ქართული (Georgian), type: string}
-    - {name: image, label: Section photo, type: image}
+    - name: image
+      label: Section photo
+      type: image
+      options: {media: images}
     - {name: image_alt, label: Photo description, type: string}
   - name: coming_soon
     label: Text for items not ready yet
@@ -258,6 +290,7 @@ content:
   format: yaml-frontmatter
   filename: '{year}-{month}-{day}-{hour}{minute}{second}.md'
   view:
+    primary: title.en
     fields:
     - title.en
     - section
@@ -277,20 +310,16 @@ content:
     type: select
     options:
       values:
-      - name: practice
-        label: Practice – tools and exercises
-      - name: learn
-        label: Learn more and dive deeper
+      - {name: practice, label: Practice – tools and exercises}
+      - {name: learn, label: Learn more and dive deeper}
   - name: status
     label: Status
     type: select
     options:
       values:
-      - name: available
-        label: Available
-      - name: coming_soon
-        label: Coming soon
-  - {name: order, label: Order (smaller number = shown first), type: number}
+      - {name: available, label: Available}
+      - {name: coming_soon, label: Coming soon}
+  - {name: order, label: Order (1 = shown first), type: number, description: 'Order within its section: 1, 2, 3 … (use e.g. 2.5 to put something in between)'}
   - name: type
     label: Type label (e.g. Cards, Worksheet, Article)
     type: object
@@ -304,9 +333,12 @@ content:
     - {name: en, label: English, type: text}
     - {name: ka, label: ქართული (Georgian), type: text}
   - {name: credit, label: Credit / source line, type: string, description: e.g. Adapted from … · © Author}
-  - {name: cover, label: Cover image (optional), type: image}
+  - name: cover
+    label: Cover image (optional)
+    type: image
+    options: {media: images}
   - name: links
-    label: Files / links (first one is the main button)
+    label: 'Buttons: files / links (the first one is the main button)'
     type: object
     list: true
     fields:
@@ -316,7 +348,23 @@ content:
       fields:
       - {name: en, label: English, type: string}
       - {name: ka, label: ქართული (Georgian), type: string}
-    - {name: url, label: 'Link (https://…)', type: string}
+      description: e.g. English, ქართული, Open PDF
+    - {name: url, label: 'Link (https://…)', type: string, description: e.g. a Google Drive link. Fill in this OR upload a file below.}
+    - name: file
+      label: Or upload a file
+      type: file
+      description: 'PDF, Word or image. Large files (over ~10 MB): better use a Drive link.'
+      options: {media: files}
+    - name: use
+      label: Which one should the button open?
+      type: select
+      options:
+        placeholder: Automatic
+        values:
+        - {name: auto, label: Automatic}
+        - {name: link, label: The link}
+        - {name: file, label: The uploaded file}
+      description: 'Leave on Automatic: the uploaded file is used if there is one, otherwise the link.'
 - name: news
   label: What's New
   type: collection
@@ -324,6 +372,7 @@ content:
   format: yaml-frontmatter
   filename: '{year}-{month}-{day}-{hour}{minute}{second}.md'
   view:
+    primary: title.en
     fields:
     - title.en
     - when.en
@@ -337,7 +386,7 @@ content:
     fields:
     - {name: en, label: English, type: string}
     - {name: ka, label: ქართული (Georgian), type: string}
-  - {name: order, label: Order (smaller number = shown first), type: number}
+  - {name: order, label: Order (1 = shown first), type: number, description: '1, 2, 3 … To put something in between, use e.g. 2.5'}
   - {name: example, label: Example placeholder (shows an 'Example' badge), type: boolean}
   - name: kind
     label: Type (e.g. Invitation, News, Article)
@@ -351,8 +400,41 @@ content:
     fields:
     - {name: en, label: English, type: string}
     - {name: ka, label: ქართული (Georgian), type: string}
-  - {name: image, label: Image (optional), type: image}
-  - {name: link, label: Link (optional), type: string}
+  - name: image
+    label: Picture (optional)
+    type: image
+    description: Your own picture for the card, e.g. a photo or poster
+    options: {media: images}
+  - {name: link, label: Link (optional), type: string, description: 'Website, registration form, Instagram post …'}
+  - name: document
+    label: Document (optional)
+    type: file
+    description: Upload a PDF or a poster file
+    options: {media: files}
+  - name: picture_choice
+    label: Picture shown on the card
+    type: select
+    options:
+      placeholder: Automatic
+      values:
+      - {name: auto, label: Automatic}
+      - {name: picture, label: My uploaded picture}
+      - {name: document, label: The uploaded document (if it is an image)}
+      - {name: preview, label: Preview picture of the link}
+      - {name: none, label: No picture (plain coloured card)}
+    description: 'Automatic: your picture → else the document if it is an image → else the link''s preview picture → else plain.'
+  - name: click_choice
+    label: Clicking the card opens
+    type: select
+    options:
+      placeholder: Automatic
+      values:
+      - {name: auto, label: Automatic}
+      - {name: link, label: The link}
+      - {name: document, label: The uploaded document}
+      - {name: picture, label: The picture at full size}
+      - {name: none, label: Nothing (card is not clickable)}
+    description: 'Automatic: the link → else the document → else the picture.'
 - name: site
   label: Site settings
   type: file
