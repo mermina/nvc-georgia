@@ -338,7 +338,7 @@ content:
     type: image
     options: {media: images}
   - name: links
-    label: 'Buttons: files / links (the first one is the main button)'
+    label: Buttons (the first one is the main button)
     type: object
     list: true
     fields:
@@ -349,22 +349,22 @@ content:
       - {name: en, label: English, type: string}
       - {name: ka, label: ქართული (Georgian), type: string}
       description: e.g. English, ქართული, Open PDF
-    - {name: url, label: 'Link (https://…)', type: string, description: e.g. a Google Drive link. Fill in this OR upload a file below.}
+    - {name: url, label: Link (optional), type: string, description: 'e.g. a Google Drive link (https://…)'}
     - name: file
-      label: Or upload a file
+      label: Document (optional)
       type: file
-      description: 'PDF, Word or image. Large files (over ~10 MB): better use a Drive link.'
+      description: 'Upload a PDF, Word file or image. Large files (over ~10 MB): better use a Drive link.'
       options: {media: files}
     - name: use
-      label: Which one should the button open?
+      label: Clicking the button opens
       type: select
       options:
         placeholder: Automatic
         values:
         - {name: auto, label: Automatic}
         - {name: link, label: The link}
-        - {name: file, label: The uploaded file}
-      description: 'Leave on Automatic: the uploaded file is used if there is one, otherwise the link.'
+        - {name: file, label: The uploaded document}
+      description: 'Automatic: the link → else the document.'
 - name: news
   label: What's New
   type: collection

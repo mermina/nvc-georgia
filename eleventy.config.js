@@ -29,11 +29,11 @@ async function resolveNews(d) {
   return { picture, href };
 }
 
-// For a Materials button: link or uploaded file. "" = Automatic (uploaded file wins if both are filled).
+// For a Materials button: link or uploaded document. "" / "auto" = Automatic (link first, like What's New cards).
 function resolveButton(l) {
   if (l.use === "link" && l.url) return l.url;
   if (l.use === "file" && l.file) return l.file;
-  return l.file || l.url || "";
+  return l.url || l.file || "";
 }
 
 export default function (eleventyConfig) {
