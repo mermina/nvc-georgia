@@ -73,9 +73,10 @@ permalink: index.html
       </div>
       <div class="arrows"><button aria-label="Previous" onclick="rail(-1)">←</button><button aria-label="Next" onclick="rail(1)">→</button></div>
     </div>
+    <style>.rail .post .poster.photo{background-size:cover !important;background-position:center !important}</style>
     <div class="rail" id="rail">
 {%- for n in collections.news %}{% set d = n.data %}
-      <article class="post">{% if d.link %}<a href="{{ d.link }}" target="_blank" rel="noopener">{% endif %}<div class="poster{% if d.image %} photo{% endif %}"{% if d.image %} style="background-image:url({{ d.image }})"{% endif %}{{ attr(d.title) }}>{{ d.title.en | safe }}</div>{% if d.link %}</a>{% endif %}<div class="post-body">{% if d.example %}<span class="ex" data-ka="მაგალითი">Example</span>{% endif %}<span class="tag"{{ attr(d.kind) }}>{{ d.kind.en | safe }}</span><span class="date"{{ attr(d.when) }}>{{ d.when.en | safe }}</span></div></article>
+      <article class="post">{% if d.card.href %}<a href="{{ d.card.href }}" target="_blank" rel="noopener">{% endif %}<div class="poster{% if d.card.picture %} photo{% endif %}"{% if d.card.picture %} style="background-image:url('{{ d.card.picture }}')"{% endif %}{{ attr(d.title) }}>{{ d.title.en | safe }}</div>{% if d.card.href %}</a>{% endif %}<div class="post-body">{% if d.example %}<span class="ex" data-ka="მაგალითი">Example</span>{% endif %}<span class="tag"{{ attr(d.kind) }}>{{ d.kind.en | safe }}</span><span class="date"{{ attr(d.when) }}>{{ d.when.en | safe }}</span></div></article>
 {%- endfor %}
     </div>
   </div>
