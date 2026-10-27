@@ -1,0 +1,49 @@
+{
+  "name": "NVC Georgia",
+  "contact": {
+    "en": "[Email to be added]",
+    "ka": "[ელფოსტა დასამატებელია]"
+  },
+  "draft_notice": {
+    "show": true,
+    "en": "Mockup · Georgian text is a draft — to be checked by the team",
+    "ka": "მაკეტი · ქართული ტექსტი — სამუშაო ვერსია, გუნდმა უნდა გადაამოწმოს"
+  },
+  "menu": [
+    {
+      "label": {
+        "en": "Home",
+        "ka": "მთავარი"
+      },
+      "url": "index.html"
+    },
+    {
+      "label": {
+        "en": "About NVC",
+        "ka": "NVC-ის შესახებ"
+      },
+      "url": "index.html#about-nvc"
+    },
+    {
+      "label": {
+        "en": "Team",
+        "ka": "გუნდი"
+      },
+      "url": "team.html"
+    },
+    {
+      "label": {
+        "en": "Materials",
+        "ka": "მასალები"
+      },
+      "url": "materials.html"
+    },
+    {
+      "label": {
+        "en": "What's New",
+        "ka": "სიახლეები"
+      },
+      "url": "index.html#latest"
+    }
+  ]
+}

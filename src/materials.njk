@@ -1,0 +1,59 @@
+---
+layout: base.njk
+title: Materials
+active: Materials
+permalink: materials.html
+---
+{%- from "t.njk" import attr -%}
+{%- set mp = materials_page -%}
+{%- if mp.banner %}
+<header class="page-head compact mat-banner">
+  <img src="{{ mp.banner }}" alt="{{ mp.banner_alt }}">
+  <div class="wrap"><h1{{ attr(mp.heading) }}>{{ mp.heading.en | safe }}</h1></div>
+</header>
+{%- else %}
+<header class="page-head compact">
+  <div class="wash w1"></div><div class="wash w2"></div><div class="wash w3"></div><div class="wash w4"></div>
+  <div class="wrap"><h1{{ attr(mp.heading) }}>{{ mp.heading.en | safe }}</h1></div>
+</header>
+{%- endif %}
+
+<section class="block mx-top">
+  <div class="wrap">
+    <p class="sub mx-intro" style="margin-bottom:0"{{ attr(mp.intro) }}>{{ mp.intro.en | safe }}</p>
+  </div>
+</section>
+{% for sec in [["practice", "p"], ["learn", "l"]] %}{% set s = mp[sec[0]] %}
+<section class="block mx-area {{ sec[1] }}" id="{{ sec[0] }}">
+  <div class="wrap">
+    <div class="mx-head"><span class="mx-dot"></span><h2{{ attr(s.heading) }}>{{ s.heading.en | safe }}</h2></div>
+    {%- if s.subtitle.en %}
+    <p class="sub"{{ attr(s.subtitle) }}>{{ s.subtitle.en | safe }}</p>
+    {%- endif %}
+    {%- if s.image %}
+    <div class="mx-band"><img src="{{ s.image }}" alt="{{ s.image_alt }}"></div>
+    {%- endif %}
+    <div class="mx-grid">
+{%- for item in collections.materials %}{% set d = item.data %}{% if d.section == sec[0] %}
+        <article class="mx-card{% if d.status == 'coming_soon' %} soon{% endif %}">
+          <div class="mx-cover">{% if d.cover %}<img src="{{ d.cover }}" alt="">{% endif %}{% if d.type.en and d.status != 'coming_soon' %}<span class="mx-type"{{ attr(d.type) }}>{{ d.type.en | safe }}</span>{% endif %}</div>
+          <div class="mx-body">
+            <h3{{ attr(d.title) }}>{{ d.title.en | safe }}</h3>
+            {%- if d.description.en and d.status != 'coming_soon' %}
+            <p{{ attr(d.description) }}>{{ d.description.en | safe }}</p>
+            {%- endif %}
+            {%- if d.credit %}<p class="mx-credit">{{ d.credit | safe }}</p>{% endif %}
+            <div class="mx-links">
+            {%- if d.status == 'coming_soon' -%}
+              <span class="mx-soon"{{ attr(mp.coming_soon) }}>{{ mp.coming_soon.en | safe }}</span>
+            {%- else -%}
+              {%- for l in d.links %}<a href="{{ l.url }}" target="_blank" rel="noopener"{% if loop.first %} class="on"{% endif %}{{ attr(l.label) }}>{{ l.label.en | safe }}</a>{% endfor -%}
+            {%- endif -%}
+            </div>
+          </div>
+        </article>
+{%- endif %}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endfor %}

@@ -1,0 +1,89 @@
+{
+  "hero": {
+    "eyebrow": {
+      "en": "Nonviolent Communication",
+      "ka": "არაძალადობრივი კომუნიკაცია"
+    },
+    "title_line_1": {
+      "en": "Speak and listen",
+      "ka": "ისაუბრე და მოუსმინე"
+    },
+    "title_line_2": {
+      "en": "from the heart",
+      "ka": "გულით"
+    },
+    "lead": {
+      "en": "NVC Georgia is a community of people learning and sharing a way of communicating that supports understanding, empathy and peaceful connection.",
+      "ka": "NVC Georgia არის ადამიანთა საზოგადოება, რომელიც სწავლობს და აზიარებს კომუნიკაციის ისეთ გზას, რომელიც ხელს უწყობს ურთიერთგაგებას, თანაგრძნობას და მშვიდობიან კავშირს."
+    },
+    "button_contact": {
+      "en": "Get in touch",
+      "ka": "დაგვიკავშირდით"
+    },
+    "button_about": {
+      "en": "About NVC",
+      "ka": "NVC-ის შესახებ"
+    },
+    "photo": "img/cards-flowers.jpg",
+    "photo_alt": "NVC needs cards in Georgian and English spread on a wooden floor around a vase of wildflowers and a candle"
+  },
+  "about": {
+    "kicker": {
+      "en": "About NVC",
+      "ka": "NVC-ის შესახებ"
+    },
+    "heading": {
+      "en": "What is Nonviolent Communication?",
+      "ka": "რა არის არაძალადობრივი კომუნიკაცია?"
+    },
+    "text_left": {
+      "en": "At its heart is the idea that all people share the same basic needs, and that understanding them makes connection possible — in families, at work and in communities. The Center for Nonviolent Communication (CNVC), founded by Rosenberg, certifies NVC trainers around the world.",
+      "ka": "მის საფუძველშია აზრი, რომ ყველა ადამიანს ერთი და იგივე ძირითადი მოთხოვნილებები აქვს და მათი გაგება კავშირს შესაძლებელს ხდის — ოჯახში, სამსახურში და საზოგადოებაში. არაძალადობრივი კომუნიკაციის ცენტრი (CNVC), რომელიც როზენბერგმა დააარსა, NVC ტრენერების სერტიფიცირებას მთელ მსოფლიოში ახორციელებს."
+    },
+    "text_right": {
+      "en": "Nonviolent Communication (NVC) was developed by the American psychologist Marshall B. Rosenberg in the 1960s and 1970s. It helps us speak honestly and listen with empathy by paying attention to four things: what we observe, what we feel, what we need, and what we would like to ask for.",
+      "ka": "არაძალადობრივი კომუნიკაცია (NVC) ამერიკელმა ფსიქოლოგმა მარშალ ბ. როზენბერგმა 1960–1970-იან წლებში შეიმუშავა. ის გვეხმარება გულწრფელად ვისაუბროთ და თანაგრძნობით მოვუსმინოთ, როცა ყურადღებას ოთხ რამეს ვაქცევთ: რას ვაკვირდებით, რას ვგრძნობთ, რა გვჭირდება და რისი თხოვნა გვინდა."
+    },
+    "link_text": {
+      "en": "Visit cnvc.org →",
+      "ka": "ეწვიეთ cnvc.org →"
+    },
+    "link_url": "https://www.cnvc.org",
+    "materials_button": {
+      "en": "Learn more — see our materials",
+      "ka": "გაიგეთ მეტი — იხილეთ ჩვენი მასალები"
+    }
+  },
+  "who": {
+    "photo": "img/team-group.jpg",
+    "photo_alt": "The NVC Georgia team outdoors under a walnut tree, holding fans of NVC cards",
+    "kicker": {
+      "en": "Who we are",
+      "ka": "ვინ ვართ ჩვენ"
+    },
+    "heading": {
+      "en": "Enthusiasts from Georgia and other countries",
+      "ka": "ენთუზიასტები საქართველოდან და სხვა ქვეყნებიდან"
+    },
+    "text": {
+      "en": "We are practitioners developing Nonviolent Communication in Georgia — translating materials, hosting gatherings and creating space for dialogue.",
+      "ka": "ჩვენ ვართ პრაქტიკოსები, რომლებიც არაძალადობრივ კომუნიკაციას საქართველოში ვავითარებთ — ვთარგმნით მასალებს, ვატარებთ შეხვედრებს და ვქმნით სივრცეს დიალოგისთვის."
+    },
+    "card_kicker": {
+      "en": "Team",
+      "ka": "გუნდი"
+    },
+    "card_title": {
+      "en": "Meet the people behind NVC Georgia",
+      "ka": "გაიცანით ადამიანები NVC Georgia-ს მიღმა"
+    },
+    "card_link": {
+      "en": "More about the team →",
+      "ka": "მეტი გუნდის შესახებ →"
+    }
+  },
+  "news_heading": {
+    "en": "What's New",
+    "ka": "სიახლეები"
+  }
+}

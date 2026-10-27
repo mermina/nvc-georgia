@@ -1,0 +1,40 @@
+{
+  "heading": {
+    "en": "Materials",
+    "ka": "მასალები"
+  },
+  "banner": "",
+  "banner_alt": "",
+  "intro": {
+    "en": "NVC materials to use in practice and to learn from — in Georgian and English.",
+    "ka": "NVC მასალები პრაქტიკისთვის და სწავლისთვის — ქართულ და ინგლისურ ენებზე."
+  },
+  "practice": {
+    "heading": {
+      "en": "Practice – tools and exercises",
+      "ka": "პრაქტიკა – ინსტრუმენტები და სავარჯიშოები"
+    },
+    "subtitle": {
+      "en": "",
+      "ka": ""
+    },
+    "image": "img/cards-ring.jpg",
+    "image_alt": "Blue NVC cards in a ring around white flowers on a jute rug"
+  },
+  "learn": {
+    "heading": {
+      "en": "Learn more and dive deeper",
+      "ka": "გაიგე მეტი და ჩაუღრმავდი"
+    },
+    "subtitle": {
+      "en": "Materials about the method.",
+      "ka": "მასალები მეთოდის შესახებ."
+    },
+    "image": "img/sharing.jpg",
+    "image_alt": "Two hands holding the two halves of a red paper heart with the word SHARING"
+  },
+  "coming_soon": {
+    "en": "Coming soon",
+    "ka": "მალე დაემატება"
+  }
+}

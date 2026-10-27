@@ -1,0 +1,82 @@
+---
+layout: base.njk
+title: Home
+active: Home
+permalink: index.html
+---
+{%- from "t.njk" import attr -%}
+{%- set h = home.hero -%}
+<header class="hero" id="top">
+  <div class="wash w1"></div><div class="wash w2"></div><div class="wash w3"></div><div class="wash w4"></div>
+  <div class="hero-split">
+    <div class="hero-body">
+      <div class="eyebrow"{{ attr(h.eyebrow) }}>{{ h.eyebrow.en | safe }}</div>
+      <h1 data-ka="{{ h.title_line_1.ka }}<br><b>{{ h.title_line_2.ka }}</b>">{{ h.title_line_1.en | safe }}<br><b>{{ h.title_line_2.en | safe }}</b></h1>
+      <p class="lead"{{ attr(h.lead) }}>{{ h.lead.en | safe }}</p>
+      <div class="btns">
+        <a href="#contact" class="btn p"{{ attr(h.button_contact) }}>{{ h.button_contact.en | safe }}</a>
+        <a href="#about-nvc" class="btn s"{{ attr(h.button_about) }}>{{ h.button_about.en | safe }}</a>
+      </div>
+    </div>
+    <div class="hero-photo"><img src="{{ h.photo }}" alt="{{ h.photo_alt }}"></div>
+  </div>
+</header>
+{% set a = home.about %}
+<section class="block nvc" id="about-nvc">
+  <div class="wrap nvc-grid">
+    <div>
+      <div class="kicker"{{ attr(a.kicker) }}>{{ a.kicker.en | safe }}</div>
+      <h2{{ attr(a.heading) }}>{{ a.heading.en | safe }}</h2>
+      <p class="sub nvc-l"{{ attr(a.text_left) }}>{{ a.text_left.en | safe }}</p>
+    </div>
+    <div>
+      <p class="sub nvc-r"{{ attr(a.text_right) }}>{{ a.text_right.en | safe }}</p>
+      {%- if a.link_url %}
+      <a href="{{ a.link_url }}" class="more nvc-link" target="_blank" rel="noopener"{{ attr(a.link_text) }}>{{ a.link_text.en | safe }}</a>
+      {%- endif %}
+      <a href="materials.html#learn" class="big-cta nvc-cta">
+        <span{{ attr(a.materials_button) }}>{{ a.materials_button.en | safe }}</span>
+        <span class="arrow">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+{% set w = home.who %}
+<section class="block" id="team">
+  <div class="wrap">
+    <a href="team.html" class="group wide"><img src="{{ w.photo }}" alt="{{ w.photo_alt }}"></a>
+    <div class="team-under">
+      <div>
+        <div class="kicker"{{ attr(w.kicker) }}>{{ w.kicker.en | safe }}</div>
+        <h2{{ attr(w.heading) }}>{{ w.heading.en | safe }}</h2>
+      </div>
+      <div>
+        <p class="sub"{{ attr(w.text) }}>{{ w.text.en | safe }}</p>
+        <a href="team.html" class="mat-cta team-cta">
+          <span class="avatars">{% for p in collections.team %}<img src="{{ p.data.photo }}" alt="">{% endfor %}<i></i></span>
+          <span class="mat-cta-body">
+            <span class="kicker"{{ attr(w.card_kicker) }}>{{ w.card_kicker.en | safe }}</span>
+            <b{{ attr(w.card_title) }}>{{ w.card_title.en | safe }}</b>
+            <span class="more"{{ attr(w.card_link) }}>{{ w.card_link.en | safe }}</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="latest" style="padding-top:20px">
+  <div class="wrap">
+    <div class="latest-head">
+      <div>
+        <h2 style="margin:0"{{ attr(home.news_heading) }}>{{ home.news_heading.en | safe }}</h2>
+      </div>
+      <div class="arrows"><button aria-label="Previous" onclick="rail(-1)">←</button><button aria-label="Next" onclick="rail(1)">→</button></div>
+    </div>
+    <div class="rail" id="rail">
+{%- for n in collections.news %}{% set d = n.data %}
+      <article class="post">{% if d.link %}<a href="{{ d.link }}" target="_blank" rel="noopener">{% endif %}<div class="poster{% if d.image %} photo{% endif %}"{% if d.image %} style="background-image:url({{ d.image }})"{% endif %}{{ attr(d.title) }}>{{ d.title.en | safe }}</div>{% if d.link %}</a>{% endif %}<div class="post-body">{% if d.example %}<span class="ex" data-ka="მაგალითი">Example</span>{% endif %}<span class="tag"{{ attr(d.kind) }}>{{ d.kind.en | safe }}</span><span class="date"{{ attr(d.when) }}>{{ d.when.en | safe }}</span></div></article>
+{%- endfor %}
+    </div>
+  </div>
+</section>

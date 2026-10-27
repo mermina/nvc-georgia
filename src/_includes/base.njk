@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ title }} — {{ site.name }} (mockup)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Noto+Sans+Georgian:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css?v={{ build.v }}">
+</head>
+<body>
+<nav>
+  <div class="nav-in">
+    <a href="index.html" class="logo" aria-label="NVC Georgia — NVC საქართველო"><span class="drop"></span><span class="lg-nvc">NVC</span><span class="lg-stack"><span>Georgia</span><span lang="ka">საქართველო</span></span></a>
+    <ul class="menu" id="menu">
+{%- for item in site.menu %}
+      <li><a href="{{ item.url }}"{% if item.label.en == active %} class="on"{% endif %} data-ka="{{ item.label.ka or item.label.en }}">{{ item.label.en | safe }}</a></li>
+{%- endfor %}
+    </ul>
+    <div style="display:flex;gap:12px;align-items:center">
+      <div class="lang" role="group" aria-label="Language">
+        <button class="on" data-lang="en">EN</button><button data-lang="ka">ქარ</button>
+      </div>
+      <button class="burger" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</nav>
+{{ content | safe }}
+<footer id="contact">
+  <span>{{ site.name }}</span>
+  <span data-ka="{{ site.contact.ka or site.contact.en }}">{{ site.contact.en | safe }}</span>
+</footer>
+{% if site.draft_notice.show %}
+<div class="mock" data-ka="{{ site.draft_notice.ka }}">{{ site.draft_notice.en | safe }}</div>
+{% endif %}
+<script src="app.js?v={{ build.v }}"></script>
+</body>
+</html>

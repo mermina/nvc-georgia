@@ -1,0 +1,2 @@
+{#- attr(o): bilingual text object {en, ka} -> ' data-ka="…"' (falls back to English when Georgian is empty) -#}
+{% macro attr(o) %} data-ka="{{ o.ka or o.en }}"{% endmacro %}

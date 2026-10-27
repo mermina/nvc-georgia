@@ -1,0 +1,38 @@
+---
+layout: base.njk
+title: Team
+active: Team
+permalink: team.html
+---
+{%- from "t.njk" import attr -%}
+<header class="page-head compact">
+  <div class="wash w1"></div><div class="wash w2"></div><div class="wash w3"></div><div class="wash w4"></div>
+  <div class="wrap"><h1{{ attr(team_page.heading) }}>{{ team_page.heading.en | safe }}</h1></div>
+</header>
+
+<section class="block">
+  <div class="wrap">
+    <div class="people">
+{% for p in collections.team %}{% set d = p.data %}
+      <article class="person">
+        <div class="pic"><img src="{{ d.photo }}" alt="{{ d.name.en }}"></div>
+        <div class="info">
+          <h3{{ attr(d.name) }}>{{ d.name.en | safe }}</h3>
+          <div class="role"{{ attr(d.role) }}>{{ d.role.en | safe }}</div>
+          <p{{ attr(d.intro) }}>{{ d.intro.en | safe }}</p>
+          {%- if d.bio.en or (d.links and d.links.length) %}
+          <div class="bio-rest">
+            {%- if d.bio.en %}
+            <p style="margin-top:6px"{{ attr(d.bio) }}>{{ d.bio.en | safe }}</p>
+            {%- endif %}
+            {%- if d.links and d.links.length %}
+            <div class="links">{% for l in d.links %}<a href="{{ l.url }}" target="_blank" rel="noopener"{{ attr(l.label) }}>{{ l.label.en | safe }}</a>{% endfor %}</div>
+            {%- endif %}
+          </div>
+          {%- endif %}
+        </div>
+      </article>
+{% endfor %}
+    </div>
+  </div>
+</section>
