@@ -2,7 +2,7 @@
 title:
   en: Listening before responding
   ka: მოსმენა პასუხამდე
-order: 40
+order: 4
 example: true
 kind:
   en: Article

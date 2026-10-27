@@ -4,7 +4,7 @@ title:
   ka: კომუნიკაციის სქემა
 section: learn
 status: coming_soon
-order: 80
+order: 2
 type:
   en: ''
   ka: ''

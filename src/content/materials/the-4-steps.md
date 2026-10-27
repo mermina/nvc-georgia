@@ -4,7 +4,7 @@ title:
   ka: 4 ნაბიჯი
 section: learn
 status: coming_soon
-order: 70
+order: 1
 type:
   en: ''
   ka: ''

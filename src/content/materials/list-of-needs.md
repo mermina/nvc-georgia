@@ -4,7 +4,7 @@ title:
   ka: მოთხოვნილებების სია
 section: practice
 status: coming_soon
-order: 40
+order: 4
 type:
   en: ''
   ka: ''

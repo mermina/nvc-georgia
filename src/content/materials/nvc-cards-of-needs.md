@@ -4,7 +4,7 @@ title:
   ka: NVC მოთხოვნილებების ბარათები
 section: practice
 status: available
-order: 10
+order: 1
 type:
   en: Cards
   ka: ბარათები

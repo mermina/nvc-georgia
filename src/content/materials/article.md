@@ -4,7 +4,7 @@ title:
   ka: სტატია
 section: learn
 status: coming_soon
-order: 90
+order: 3
 type:
   en: ''
   ka: ''

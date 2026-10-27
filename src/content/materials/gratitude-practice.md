@@ -4,7 +4,7 @@ title:
   ka: მადლიერების პრაქტიკა
 section: practice
 status: coming_soon
-order: 60
+order: 6
 type:
   en: ''
   ka: ''

@@ -2,7 +2,7 @@
 title:
   en: 'New material: list of needs'
   ka: 'ახალი მასალა: მოთხოვნილებების სია'
-order: 20
+order: 2
 example: true
 kind:
   en: News

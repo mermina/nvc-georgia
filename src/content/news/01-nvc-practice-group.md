@@ -2,7 +2,7 @@
 title:
   en: NVC practice group
   ka: NVC პრაქტიკის ჯგუფი
-order: 10
+order: 1
 example: true
 kind:
   en: Invitation

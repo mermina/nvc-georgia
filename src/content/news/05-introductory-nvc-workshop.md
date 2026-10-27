@@ -2,7 +2,7 @@
 title:
   en: Introductory NVC workshop
   ka: შესავალი NVC სემინარი
-order: 50
+order: 5
 example: true
 kind:
   en: Invitation

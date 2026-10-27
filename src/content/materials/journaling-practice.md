@@ -4,7 +4,7 @@ title:
   ka: დღიურის წერის პრაქტიკა
 section: practice
 status: coming_soon
-order: 50
+order: 5
 type:
   en: ''
   ka: ''

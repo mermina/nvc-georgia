@@ -4,7 +4,7 @@ title:
   ka: გრძნობების სია
 section: practice
 status: coming_soon
-order: 30
+order: 3
 type:
   en: ''
   ka: ''

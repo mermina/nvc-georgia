@@ -4,7 +4,7 @@ title:
   ka: რთული საუბრისთვის მზადება
 section: practice
 status: available
-order: 20
+order: 2
 type:
   en: Worksheet
   ka: სამუშაო ფურცელი

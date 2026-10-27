@@ -47,7 +47,7 @@ permalink: materials.html
             {%- if d.status == 'coming_soon' -%}
               <span class="mx-soon"{{ attr(mp.coming_soon) }}>{{ mp.coming_soon.en | safe }}</span>
             {%- else -%}
-              {%- for l in d.links %}<a href="{{ l.url }}" target="_blank" rel="noopener"{% if loop.first %} class="on"{% endif %}{{ attr(l.label) }}>{{ l.label.en | safe }}</a>{% endfor -%}
+              {%- for l in d.links %}{% if l.href %}<a href="{{ l.href }}" target="_blank" rel="noopener"{% if loop.first %} class="on"{% endif %}{{ attr(l.label) }}>{{ l.label.en | safe }}</a>{% endif %}{% endfor -%}
             {%- endif -%}
             </div>
           </div>
