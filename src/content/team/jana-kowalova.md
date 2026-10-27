@@ -2,7 +2,7 @@
 name:
   en: Jana Kowalová
   ka: იანა კოვალოვა
-order: 30
+order: 3
 photo: img/jana-kowalova.jpg
 role:
   en: Community social worker · Youth worker · Facilitator

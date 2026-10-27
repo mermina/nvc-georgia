@@ -2,7 +2,7 @@
 name:
   en: Nino Margvelashvili
   ka: ნინო მარგველაშვილი
-order: 20
+order: 2
 photo: img/nino-margvelashvili.jpg
 role:
   en: Relational learning and well-being steward

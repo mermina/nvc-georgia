@@ -2,7 +2,7 @@
 name:
   en: Nino Lotishvili
   ka: ნინო ლოთიშვილი
-order: 40
+order: 4
 photo: img/nino-lotishvili.jpg
 role:
   en: Intercultural communication specialist · Peacebuilding practitioner · UNDP Insider Mediator
