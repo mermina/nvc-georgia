@@ -1,0 +1,397 @@
+# Pages CMS configuration — https://pagescms.org/docs/configuration/
+media:
+  input: img
+  output: img
+content:
+- name: home
+  label: Home page
+  type: file
+  path: src/_data/home.json
+  fields:
+  - name: hero
+    label: Top of the page
+    type: object
+    fields:
+    - name: eyebrow
+      label: Small line above the headline
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: title_line_1
+      label: Headline – line 1
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: title_line_2
+      label: Headline – line 2
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: lead
+      label: Intro text
+      type: object
+      fields:
+      - {name: en, label: English, type: text}
+      - {name: ka, label: ქართული (Georgian), type: text}
+    - name: button_contact
+      label: 'Button: contact'
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: button_about
+      label: 'Button: about NVC'
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - {name: photo, label: Photo, type: image}
+    - {name: photo_alt, label: Photo description (for screen readers), type: string}
+  - name: about
+    label: About NVC
+    type: object
+    fields:
+    - name: kicker
+      label: Small label
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: heading
+      label: Heading
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: text_left
+      label: Text – left column
+      type: object
+      fields:
+      - {name: en, label: English, type: text}
+      - {name: ka, label: ქართული (Georgian), type: text}
+    - name: text_right
+      label: Text – right column
+      type: object
+      fields:
+      - {name: en, label: English, type: text}
+      - {name: ka, label: ქართული (Georgian), type: text}
+    - name: link_text
+      label: Link text
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - {name: link_url, label: Link address, type: string, description: Leave empty to hide the link}
+    - name: materials_button
+      label: Big button to Materials
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+  - name: who
+    label: Who we are
+    type: object
+    fields:
+    - {name: photo, label: Group photo, type: image}
+    - {name: photo_alt, label: Photo description, type: string}
+    - name: kicker
+      label: Small label
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: heading
+      label: Heading
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: text
+      label: Text
+      type: object
+      fields:
+      - {name: en, label: English, type: text}
+      - {name: ka, label: ქართული (Georgian), type: text}
+    - name: card_kicker
+      label: Team card – small label
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: card_title
+      label: Team card – title
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: card_link
+      label: Team card – link text
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+  - name: news_heading
+    label: Heading of the What's New section
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+- name: team
+  label: Team
+  type: collection
+  path: src/content/team
+  format: yaml-frontmatter
+  filename: '{year}-{month}-{day}-{hour}{minute}{second}.md'
+  view:
+    fields:
+    - name.en
+    - order
+    sort:
+    - order
+  fields:
+  - name: name
+    label: Name
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - {name: order, label: Order (smaller number = shown first), type: number}
+  - {name: photo, label: Photo, type: image, description: 'Portrait, ideally at least 800 px wide'}
+  - name: role
+    label: Role / titles
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - name: intro
+    label: Short intro (first paragraph)
+    type: object
+    fields:
+    - {name: en, label: English, type: text}
+    - {name: ka, label: ქართული (Georgian), type: text}
+  - name: bio
+    label: Rest of the bio
+    type: object
+    fields:
+    - {name: en, label: English, type: text}
+    - {name: ka, label: ქართული (Georgian), type: text}
+  - name: links
+    label: Links (e.g. own website, profile)
+    type: object
+    list: true
+    fields:
+    - name: label
+      label: Button text
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - {name: url, label: 'Link (https://…)', type: string}
+- name: materials_page
+  label: Materials page – texts
+  type: file
+  path: src/_data/materials_page.json
+  fields:
+  - name: heading
+    label: Page heading
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - {name: banner, label: Banner photo (optional – leave empty for the plain header), type: image}
+  - {name: banner_alt, label: Banner description, type: string}
+  - name: intro
+    label: Intro line
+    type: object
+    fields:
+    - {name: en, label: English, type: text}
+    - {name: ka, label: ქართული (Georgian), type: text}
+  - name: practice
+    label: 'Section 1: Practice'
+    type: object
+    fields:
+    - name: heading
+      label: Section name
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: subtitle
+      label: Subtitle
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - {name: image, label: Section photo, type: image}
+    - {name: image_alt, label: Photo description, type: string}
+  - name: learn
+    label: 'Section 2: Learn more'
+    type: object
+    fields:
+    - name: heading
+      label: Section name
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: subtitle
+      label: Subtitle
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - {name: image, label: Section photo, type: image}
+    - {name: image_alt, label: Photo description, type: string}
+  - name: coming_soon
+    label: Text for items not ready yet
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+- name: materials
+  label: Materials
+  type: collection
+  path: src/content/materials
+  format: yaml-frontmatter
+  filename: '{year}-{month}-{day}-{hour}{minute}{second}.md'
+  view:
+    fields:
+    - title.en
+    - section
+    - status
+    - order
+    sort:
+    - order
+  fields:
+  - name: title
+    label: Title
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - name: section
+    label: Section
+    type: select
+    options:
+      values:
+      - name: practice
+        label: Practice – tools and exercises
+      - name: learn
+        label: Learn more and dive deeper
+  - name: status
+    label: Status
+    type: select
+    options:
+      values:
+      - name: available
+        label: Available
+      - name: coming_soon
+        label: Coming soon
+  - {name: order, label: Order (smaller number = shown first), type: number}
+  - name: type
+    label: Type label (e.g. Cards, Worksheet, Article)
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - name: description
+    label: Short description
+    type: object
+    fields:
+    - {name: en, label: English, type: text}
+    - {name: ka, label: ქართული (Georgian), type: text}
+  - {name: credit, label: Credit / source line, type: string, description: e.g. Adapted from … · © Author}
+  - {name: cover, label: Cover image (optional), type: image}
+  - name: links
+    label: Files / links (first one is the main button)
+    type: object
+    list: true
+    fields:
+    - name: label
+      label: Button text
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - {name: url, label: 'Link (https://…)', type: string}
+- name: news
+  label: What's New
+  type: collection
+  path: src/content/news
+  format: yaml-frontmatter
+  filename: '{year}-{month}-{day}-{hour}{minute}{second}.md'
+  view:
+    fields:
+    - title.en
+    - when.en
+    - order
+    sort:
+    - order
+  fields:
+  - name: title
+    label: Title
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - {name: order, label: Order (smaller number = shown first), type: number}
+  - {name: example, label: Example placeholder (shows an 'Example' badge), type: boolean}
+  - name: kind
+    label: Type (e.g. Invitation, News, Article)
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - name: when
+    label: Date / when
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - {name: image, label: Image (optional), type: image}
+  - {name: link, label: Link (optional), type: string}
+- name: site
+  label: Site settings
+  type: file
+  path: src/_data/site.json
+  fields:
+  - {name: name, label: Site name, type: string}
+  - name: contact
+    label: Contact line in the footer
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - name: draft_notice
+    label: Draft notice (bottom-left)
+    type: object
+    fields:
+    - {name: show, label: Show the notice, type: boolean}
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - name: menu
+    label: Menu
+    type: object
+    list: true
+    fields:
+    - name: label
+      label: Menu item
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - {name: url, label: Link, type: string}
+- name: team_page
+  label: Team page – texts
+  type: file
+  path: src/_data/team_page.json
+  fields:
+  - name: heading
+    label: Page heading
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
