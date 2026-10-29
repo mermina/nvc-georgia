@@ -157,6 +157,59 @@ content:
     fields:
     - {name: en, label: English, type: string}
     - {name: ka, label: ქართული (Georgian), type: string}
+  - name: contact
+    label: Contact form (bottom of the page)
+    type: object
+    fields:
+    - name: heading
+      label: Heading
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: intro
+      label: Short line under the heading
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: label_name
+      label: 'Label: name'
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: label_email
+      label: 'Label: email'
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: label_message
+      label: 'Label: message'
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: button
+      label: Button text
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: thanks
+      label: Message after sending
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - name: error
+      label: Message if sending fails
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+    - {name: form_action, label: Form address (set up by Marina), type: string, description: Where messages are delivered. Leave as it is.}
 - name: team
   label: Team
   type: collection
