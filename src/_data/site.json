@@ -44,6 +44,13 @@
         "ka": "სიახლეები"
       },
       "url": "index.html#latest"
+    },
+    {
+      "label": {
+        "en": "Contact us",
+        "ka": "დაგვიკავშირდით"
+      },
+      "url": "index.html#contact"
     }
   ]
 }

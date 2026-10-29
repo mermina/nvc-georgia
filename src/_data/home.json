@@ -17,7 +17,7 @@
       "ka": "NVC Georgia არის ადამიანთა საზოგადოება, რომელიც სწავლობს და აზიარებს კომუნიკაციის ისეთ გზას, რომელიც ხელს უწყობს ურთიერთგაგებას, თანაგრძნობას და მშვიდობიან კავშირს."
     },
     "button_contact": {
-      "en": "Get in touch",
+      "en": "Contact us",
       "ka": "დაგვიკავშირდით"
     },
     "button_about": {
@@ -38,7 +38,7 @@
     },
     "text_left": {
       "en": "At its heart is the idea that all people share the same basic needs, and that understanding them makes connection possible — in families, at work and in communities. The Center for Nonviolent Communication (CNVC), founded by Rosenberg, certifies NVC trainers around the world.",
-      "ka": "მის საფუძველშია აზრი, რომ ყველა ადამიანს ერთი და იგივე ძირითადი მოთხოვნილებები აქვს და მათი გაგება კავშირს შესაძლებელს ხდის — ოჯახში, სამსახურში და საზოგადოებაში. არაძალადობრივი კომუნიკაციის ცენტრი (CNVC), რომელიც როზენბერგმა დააარსა, NVC ტრენერების სერტიფიცირებას მთელ მსოფლიოში ახორციელებს."
+      "ka": "მის საფუძველშია აზრი, რომ ყველა ადამიანს ერთი და იგივე ძირითადი მოთხოვნილებები აქვს და მათი გაგება კავშირს შესაძლებელს ხდის — ოჯახში, სამსახურში და საზოგადოებაში. არაძალადობრივი კომუნიკაციის ცენტრი (CNVC), რომელიც როზენბერგმა დაარსა, NVC ტრენერების სერტიფიცირებას მთელ მსოფლიოში ახორციელებს."
     },
     "text_right": {
       "en": "Nonviolent Communication (NVC) was developed by the American psychologist Marshall B. Rosenberg in the 1960s and 1970s. It helps us speak honestly and listen with empathy by paying attention to four things: what we observe, what we feel, what we need, and what we would like to ask for.",
@@ -85,5 +85,40 @@
   "news_heading": {
     "en": "What's New",
     "ka": "სიახლეები"
+  },
+  "contact": {
+    "heading": {
+      "en": "Contact us",
+      "ka": "დაგვიკავშირდით"
+    },
+    "intro": {
+      "en": "Send us a message and we will get back to you.",
+      "ka": "მოგვწერეთ და გიპასუხებთ."
+    },
+    "label_name": {
+      "en": "Name",
+      "ka": "სახელი"
+    },
+    "label_email": {
+      "en": "Email",
+      "ka": "ელფოსტა"
+    },
+    "label_message": {
+      "en": "Message",
+      "ka": "შეტყობინება"
+    },
+    "button": {
+      "en": "Send",
+      "ka": "გაგზავნა"
+    },
+    "thanks": {
+      "en": "Thank you! Your message has been sent.",
+      "ka": "გმადლობთ! თქვენი შეტყობინება გაიგზავნა."
+    },
+    "error": {
+      "en": "Sorry, the message could not be sent. Please try again later.",
+      "ka": "ბოდიში, შეტყობინება ვერ გაიგზავნა. გთხოვთ, სცადოთ მოგვიანებით."
+    },
+    "form_action": ""
   }
 }
