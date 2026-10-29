@@ -8,6 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Noto+Sans+Georgian:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v=20261026">
+<style>
+.lg-bigdrop{width:58px;height:58px;border-radius:0 60% 60% 60%;transform:rotate(45deg);background:linear-gradient(135deg,var(--blue-deep),var(--green-deep));display:flex;align-items:center;justify-content:center;flex:none;margin:6px 14px 0 8px;box-shadow:0 6px 16px rgba(47,90,170,.22)}
+.lg-bigdrop b{transform:rotate(-45deg);color:#fff;font-weight:800;font-size:1.05rem;letter-spacing:.04em}
+.lg-bigdrop.line{background:none;box-shadow:none;border:2.5px solid var(--blue-deep);outline:1.5px solid var(--blue-deep);outline-offset:3px}
+.lg-bigdrop.line b{color:var(--blue-deep)}
+</style>
 </head>
 <body>
 <nav>
@@ -36,7 +42,7 @@
 
 <section class="block opt">
   <div class="wrap">
-    <p class="sub">Shown at menu-bar size. 1 is now on the site; 2–3 are the versions asked for in the meeting; 4–9 are further ideas; 10–12 were suggested by Tata; 13 by Betka and Jana; 14–15 are Georgian-only versions. Please pick one (or say what to combine).</p>
+    <p class="sub">Shown at menu-bar size. 1 is now on the site; 2–3 are the versions asked for in the meeting; 4–9 are further ideas; 10–12 were suggested by Tata; 13 by Betka and Jana; 14–15 are Georgian-only versions; 16–17 were suggested by Nino L. Please pick one (or say what to combine).</p>
     <div class="opt-grid">
       <div class="opt-card">
         <span class="opt-tag">1 · NVC large + Georgia / საქართველო</span>
@@ -113,6 +119,16 @@
         <div class="lg-demo"><span class="lg-seal big"><b>NVC</b></span><span class="lg-ka">საქართველო</span></div>
         <p class="opt-note">Like 10–11, with the Georgian name only.</p>
       </div>
+      <div class="opt-card">
+        <span class="opt-tag">16 · Nino L.'s idea: NVC inside the drop + საქართველო above, rule, GEORGIA below</span>
+        <div class="lg-demo"><span class="lg-bigdrop"><b>NVC</b></span><span class="lg-kaen rule"><span lang="ka">საქართველო</span><i></i><span>GEORGIA</span></span></div>
+        <p class="opt-note">Like 10, with the drop instead of the circle.</p>
+      </div>
+      <div class="opt-card">
+        <span class="opt-tag">17 · Nino L.'s idea, outlined drop (as in her sketch)</span>
+        <div class="lg-demo"><span class="lg-bigdrop line"><b>NVC</b></span><span class="lg-kaen rule"><span lang="ka">საქართველო</span><i></i><span>GEORGIA</span></span></div>
+        <p class="opt-note">Same as 16, drawn as a double outline instead of a filled drop.</p>
+      </div>
     </div>
     <p class="sub" style="margin-top:28px">These are quick sketches to choose a direction. The final logo will be drawn properly once a direction is picked.</p>
   </div>
@@ -124,6 +140,6 @@
 </footer>
 
 <div class="mock" data-ka="მაკეტი · ქართული ტექსტი — სამუშაო ვერსია, გუნდმა უნდა გადაამოწმოს">Mockup · Georgian text is a draft — to be checked by the team</div>
-<script src="app.js"></script>
+<script src="app.js?v=20261026"></script>
 </body>
 </html>
