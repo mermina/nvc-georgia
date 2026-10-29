@@ -29,7 +29,9 @@
 {{ content | safe }}
 <footer id="site-footer">
   <span>{{ site.name }}</span>
+  {%- if site.contact.en %}
   <span data-ka="{{ site.contact.ka or site.contact.en }}">{{ site.contact.en | safe }}</span>
+  {%- endif %}
 </footer>
 {% if site.draft_notice.show %}
 <div class="mock" data-ka="{{ site.draft_notice.ka }}">{{ site.draft_notice.en | safe }}</div>

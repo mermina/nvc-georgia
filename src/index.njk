@@ -95,11 +95,11 @@ permalink: index.html
 .cf input,.cf textarea{font:inherit;font-weight:400;padding:10px 14px;border:1.5px solid var(--line);border-radius:12px;background:#fff;color:var(--ink)}
 .cf input:focus,.cf textarea:focus{outline:none;border-color:var(--blue-deep)}
 .cf textarea{min-height:84px;resize:vertical}
-.cf .btn{justify-self:start;border:0;cursor:pointer;padding:11px 26px}
+.cf .btn{grid-column:2;justify-self:end;border:0;cursor:pointer;padding:11px 26px}
 .cf .hp{position:absolute;left:-9999px}
 .cf-msg{margin:0;font-weight:600;align-self:center}
 .cf-msg.ok{color:var(--green-deep)} .cf-msg.err{color:#b24a3a}
-@media (max-width:600px){.cf{grid-template-columns:1fr}}
+@media (max-width:600px){.cf{grid-template-columns:1fr}.cf .btn{grid-column:1}}
 </style>
 <section class="block" id="contact">
   <div class="wrap cf-wrap">
@@ -110,8 +110,8 @@ permalink: index.html
       <label><span{{ attr(c.label_email) }}>{{ c.label_email.en | safe }}</span><input name="email" type="email" required autocomplete="email"></label>
       <label class="full"><span{{ attr(c.label_message) }}>{{ c.label_message.en | safe }}</span><textarea name="message" required></textarea></label>
       <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <button class="btn p" type="submit"{{ attr(c.button) }}>{{ c.button.en | safe }}</button>
       <p class="cf-msg" id="cf-msg" role="status" hidden data-ok-en="{{ c.thanks.en }}" data-ok-ka="{{ c.thanks.ka or c.thanks.en }}" data-err-en="{{ c.error.en }}" data-err-ka="{{ c.error.ka or c.error.en }}"></p>
+      <button class="btn p" type="submit"{{ attr(c.button) }}>{{ c.button.en | safe }}</button>
     </form>
   </div>
 </section>
