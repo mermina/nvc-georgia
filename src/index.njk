@@ -81,3 +81,47 @@ permalink: index.html
     </div>
   </div>
 </section>
+
+{% set c = home.contact %}
+<style>
+.cf-wrap{max-width:560px;margin:0 auto}
+.cf-wrap h2{margin:0 0 6px;text-align:center}
+.cf-wrap .sub{text-align:center;margin:0 0 22px}
+.cf{display:grid;gap:14px;background:#fff;border:1px solid var(--line);border-radius:24px;padding:24px}
+.cf label{display:grid;gap:6px;font-weight:600;font-size:.9rem;color:var(--ink)}
+.cf input,.cf textarea{font:inherit;font-weight:400;padding:11px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--bg);color:var(--ink)}
+.cf input:focus,.cf textarea:focus{outline:none;border-color:var(--blue-deep);background:#fff}
+.cf textarea{min-height:120px;resize:vertical}
+.cf .btn{justify-self:start;border:0;cursor:pointer}
+.cf .hp{position:absolute;left:-9999px}
+.cf-msg{margin:0;font-weight:600}
+.cf-msg.ok{color:var(--green-deep)} .cf-msg.err{color:#b24a3a}
+</style>
+<section class="block" id="contact">
+  <div class="wrap cf-wrap">
+    <h2{{ attr(c.heading) }}>{{ c.heading.en | safe }}</h2>
+    {%- if c.intro.en %}<p class="sub"{{ attr(c.intro) }}>{{ c.intro.en | safe }}</p>{% endif %}
+    <form class="cf" id="cf" method="POST" action="{{ c.form_action }}">
+      <label><span{{ attr(c.label_name) }}>{{ c.label_name.en | safe }}</span><input name="name" type="text" required autocomplete="name"></label>
+      <label><span{{ attr(c.label_email) }}>{{ c.label_email.en | safe }}</span><input name="email" type="email" required autocomplete="email"></label>
+      <label><span{{ attr(c.label_message) }}>{{ c.label_message.en | safe }}</span><textarea name="message" required></textarea></label>
+      <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <button class="btn p" type="submit"{{ attr(c.button) }}>{{ c.button.en | safe }}</button>
+      <p class="cf-msg" id="cf-msg" role="status" hidden data-ok-en="{{ c.thanks.en }}" data-ok-ka="{{ c.thanks.ka or c.thanks.en }}" data-err-en="{{ c.error.en }}" data-err-ka="{{ c.error.ka or c.error.en }}"></p>
+    </form>
+  </div>
+</section>
+<script>
+(function(){
+  var f=document.getElementById('cf'), m=document.getElementById('cf-msg');
+  if(!f) return;
+  function show(kind){var ka=document.documentElement.lang==='ka';m.textContent=m.dataset[kind+(ka?'Ka':'En')];m.className='cf-msg '+(kind==='ok'?'ok':'err');m.hidden=false;}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    if(!f.getAttribute('action')){show('err');return;}
+    fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
+      .then(function(r){if(r.ok){f.reset();show('ok');}else{show('err');}})
+      .catch(function(){show('err');});
+  });
+})();
+</script>
