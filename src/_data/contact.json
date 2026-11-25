@@ -1,0 +1,19 @@
+{
+  "kicker": {
+    "en": "Contact us",
+    "ka": "დაგვიკავშირდით"
+  },
+  "heading": {
+    "en": "Let's stay in touch.",
+    "ka": "მოდით, კავშირში ვიყოთ."
+  },
+  "text": {
+    "en": "Interested in working with us, or have an idea or suggestion for the NVC Georgia team? We'd be glad to hear from you. Use the form, or write to us directly:",
+    "ka": "გაინტერესებთ ჩვენთან თანამშრომლობა, ან გაქვთ იდეა თუ შემოთავაზება NVC Georgia-ს გუნდისთვის? სიამოვნებით მოვისმენთ თქვენგან. გამოიყენეთ ფორმა ან მოგვწერეთ პირდაპირ:"
+  },
+  "email": "nvcingeorgia@gmail.com",
+  "thanks": {
+    "en": "Thank you! Your message has been sent.",
+    "ka": "გმადლობთ! თქვენი შეტყობინება გაიგზავნა."
+  }
+}

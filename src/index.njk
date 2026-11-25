@@ -21,7 +21,7 @@ permalink: index.html
     <div class="hero-photo"><img src="{{ h.photo }}" alt="{{ h.photo_alt }}"></div>
   </div>
 </header>
-{% set a = home.about %}
+{% set a = about.nvc %}
 <section class="block nvc" id="about-nvc">
   <div class="wrap nvc-grid">
     <div>
@@ -41,7 +41,7 @@ permalink: index.html
     </div>
   </div>
 </section>
-{% set w = home.who %}{% set tc = team_card %}
+{% set w = about.who %}{% set tc = team_card %}
 <section class="block" id="team">
   <div class="wrap">
     <a href="team.html" class="group wide"><img src="{{ w.photo }}" alt="{{ w.photo_alt }}"></a>
@@ -69,7 +69,7 @@ permalink: index.html
   <div class="wrap">
     <div class="latest-head">
       <div>
-        <h2 style="margin:0"{{ attr(home.news_heading) }}>{{ home.news_heading.en | safe }}</h2>
+        <h2 style="margin:0"{{ attr(news_page.heading) }}>{{ news_page.heading.en | safe }}</h2>
       </div>
       <div class="arrows"><button aria-label="Previous" onclick="rail(-1)">←</button><button aria-label="Next" onclick="rail(1)">→</button></div>
     </div>
@@ -82,13 +82,15 @@ permalink: index.html
   </div>
 </section>
 
-{% set c = home.contact %}{% set cf = contact_form %}
+{% set c = contact %}{% set cf = contact_form %}
 <style>
 #latest{padding-bottom:16px}
 #contact{padding:12px 0 40px;scroll-margin-top:70px}
-.cf-wrap{max-width:760px;margin:0 auto}
-.cf-wrap h2{margin:0 0 4px;text-align:center}
-.cf-wrap .sub{text-align:center;margin:0 0 18px}
+.ct-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:start}
+.ct-grid h2{margin:0 0 14px}
+.ct-grid .sub{margin:0 0 14px}
+.ct-mail{font-weight:700;color:var(--blue-deep);text-decoration:none;border-bottom:1.5px solid currentColor;word-break:break-all}
+.ct-mail:hover{color:var(--green-deep)}
 .cf{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .cf label{display:grid;gap:4px;font-weight:600;font-size:.85rem;color:var(--ink-soft)}
 .cf .full{grid-column:1 / -1}
@@ -99,13 +101,18 @@ permalink: index.html
 .cf .hp{position:absolute;left:-9999px}
 .cf-msg{margin:0;font-weight:600;align-self:center}
 .cf-msg.ok{color:var(--green-deep)} .cf-msg.err{color:#b24a3a}
+@media (max-width:800px){.ct-grid{grid-template-columns:1fr;gap:20px}}
 @media (max-width:600px){.cf{grid-template-columns:1fr}.cf .btn{grid-column:1}}
 </style>
 <section class="block" id="contact">
-  <div class="wrap cf-wrap">
-    <h2{{ attr(cf.heading) }}>{{ cf.heading.en | safe }}</h2>
-    {%- if cf.intro.en %}<p class="sub"{{ attr(cf.intro) }}>{{ cf.intro.en | safe }}</p>{% endif %}
-    {%- set cfAction = cf.form_action or ("https://formsubmit.co/ajax/" + c.recipient_email if c.recipient_email else "") %}
+  <div class="wrap ct-grid">
+    <div>
+      <div class="kicker"{{ attr(c.kicker) }}>{{ c.kicker.en | safe }}</div>
+      <h2{{ attr(c.heading) }}>{{ c.heading.en | safe }}</h2>
+      {%- if c.text.en %}<p class="sub"{{ attr(c.text) }}>{{ c.text.en | safe }}</p>{% endif %}
+      {%- if c.email %}<a class="ct-mail" href="mailto:{{ c.email }}">{{ c.email }}</a>{% endif %}
+    </div>
+    {%- set cfAction = cf.form_action or ("https://formsubmit.co/ajax/" + c.email if c.email else "") %}
     <form class="cf" id="cf" method="POST" action="{{ cfAction }}">
       <input type="hidden" name="_subject" value="New message from the NVC Georgia website">
       <input type="hidden" name="_template" value="table">
