@@ -65,7 +65,12 @@ content:
       type: image
       options: {media: images}
     - {name: photo_alt, label: Photo description (for screen readers), type: string}
-  - name: about
+- name: about
+  label: About NVC
+  type: file
+  path: src/_data/about.json
+  fields:
+  - name: nvc
     label: About NVC
     type: object
     fields:
@@ -133,94 +138,6 @@ content:
       fields:
       - {name: en, label: English, type: text}
       - {name: ka, label: ქართული (Georgian), type: text}
-  - name: news_heading
-    label: Heading of the What's New section
-    type: object
-    fields:
-    - {name: en, label: English, type: string}
-    - {name: ka, label: ქართული (Georgian), type: string}
-  - name: contact
-    label: Contact form
-    type: object
-    fields:
-    - name: thanks
-      label: Message after sending
-      type: object
-      fields:
-      - {name: en, label: English, type: string}
-      - {name: ka, label: ქართული (Georgian), type: string}
-    - {name: recipient_email, label: Email that receives messages from the form, type: string, description: 'After changing it, click Activate in the email the new address receives.'}
-- name: news
-  label: What's New
-  type: collection
-  path: src/content/news
-  format: yaml-frontmatter
-  filename: '{year}-{month}-{day}-{hour}{minute}{second}.md'
-  view:
-    primary: title.en
-    fields:
-    - title.en
-    - when.en
-    - order
-    sort:
-    - order
-    default: {sort: order, order: asc}
-  fields:
-  - name: title
-    label: Title
-    type: object
-    fields:
-    - {name: en, label: English, type: string}
-    - {name: ka, label: ქართული (Georgian), type: string}
-  - {name: order, label: Order (1 = shown first), type: number, description: '1, 2, 3 … To put something in between, use e.g. 2.5'}
-  - {name: example, label: Example placeholder (shows an 'Example' badge), type: boolean}
-  - name: kind
-    label: Type (e.g. Invitation, News, Article)
-    type: object
-    fields:
-    - {name: en, label: English, type: string}
-    - {name: ka, label: ქართული (Georgian), type: string}
-  - name: when
-    label: Date / when
-    type: object
-    fields:
-    - {name: en, label: English, type: string}
-    - {name: ka, label: ქართული (Georgian), type: string}
-  - name: image
-    label: Picture (optional)
-    type: image
-    description: Your own picture for the card, e.g. a photo or poster
-    options: {media: images}
-  - {name: link, label: Link (optional), type: string, description: 'Website, registration form, Instagram post …'}
-  - name: document
-    label: Document (optional)
-    type: file
-    description: Upload a PDF or a poster file
-    options: {media: files}
-  - name: picture_choice
-    label: Picture shown on the card
-    type: select
-    options:
-      placeholder: Automatic
-      values:
-      - {name: auto, label: Automatic}
-      - {name: picture, label: My uploaded picture}
-      - {name: document, label: The uploaded document (if it is an image)}
-      - {name: preview, label: Preview picture of the link}
-      - {name: none, label: No picture (plain coloured card)}
-    description: 'Automatic: your picture → else the document if it is an image → else the link''s preview picture → else plain.'
-  - name: click_choice
-    label: Clicking the card opens
-    type: select
-    options:
-      placeholder: Automatic
-      values:
-      - {name: auto, label: Automatic}
-      - {name: link, label: The link}
-      - {name: document, label: The uploaded document}
-      - {name: picture, label: The picture at full size}
-      - {name: none, label: Nothing (card is not clickable)}
-    description: 'Automatic: the link → else the document → else the picture.'
 - name: team_page
   label: Team page – texts
   type: file
@@ -509,6 +426,118 @@ content:
         - {name: link, label: The link}
         - {name: file, label: The uploaded document}
       description: 'Automatic: the link → else the document.'
+- name: news_page
+  label: What's New – heading
+  type: file
+  path: src/_data/news_page.json
+  fields:
+  - name: heading
+    label: Heading of the What's New section
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+- name: news
+  label: What's New
+  type: collection
+  path: src/content/news
+  format: yaml-frontmatter
+  filename: '{year}-{month}-{day}-{hour}{minute}{second}.md'
+  view:
+    primary: title.en
+    fields:
+    - title.en
+    - when.en
+    - order
+    sort:
+    - order
+    default: {sort: order, order: asc}
+  fields:
+  - name: title
+    label: Title
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - {name: order, label: Order (1 = shown first), type: number, description: '1, 2, 3 … To put something in between, use e.g. 2.5'}
+  - {name: example, label: Example placeholder (shows an 'Example' badge), type: boolean}
+  - name: kind
+    label: Type (e.g. Invitation, News, Article)
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - name: when
+    label: Date / when
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - name: image
+    label: Picture (optional)
+    type: image
+    description: Your own picture for the card, e.g. a photo or poster
+    options: {media: images}
+  - {name: link, label: Link (optional), type: string, description: 'Website, registration form, Instagram post …'}
+  - name: document
+    label: Document (optional)
+    type: file
+    description: Upload a PDF or a poster file
+    options: {media: files}
+  - name: picture_choice
+    label: Picture shown on the card
+    type: select
+    options:
+      placeholder: Automatic
+      values:
+      - {name: auto, label: Automatic}
+      - {name: picture, label: My uploaded picture}
+      - {name: document, label: The uploaded document (if it is an image)}
+      - {name: preview, label: Preview picture of the link}
+      - {name: none, label: No picture (plain coloured card)}
+    description: 'Automatic: your picture → else the document if it is an image → else the link''s preview picture → else plain.'
+  - name: click_choice
+    label: Clicking the card opens
+    type: select
+    options:
+      placeholder: Automatic
+      values:
+      - {name: auto, label: Automatic}
+      - {name: link, label: The link}
+      - {name: document, label: The uploaded document}
+      - {name: picture, label: The picture at full size}
+      - {name: none, label: Nothing (card is not clickable)}
+    description: 'Automatic: the link → else the document → else the picture.'
+- name: contact
+  label: Contact us
+  type: file
+  path: src/_data/contact.json
+  fields:
+  - name: kicker
+    label: Small label
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - name: heading
+    label: Heading
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - name: text
+    label: Text next to the form
+    type: object
+    fields:
+    - {name: en, label: English, type: text}
+    - {name: ka, label: ქართული (Georgian), type: text}
+  - {name: email, label: Email address, type: string, description: 'Shown next to the form; form messages arrive here. After a change, click Activate in the email sent to it.'}
+  - name: thanks
+    label: Message after sending
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
 - name: site
   label: Site settings
   type: file
