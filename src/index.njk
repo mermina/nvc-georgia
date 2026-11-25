@@ -41,7 +41,7 @@ permalink: index.html
     </div>
   </div>
 </section>
-{% set w = home.who %}
+{% set w = home.who %}{% set tc = team_card %}
 <section class="block" id="team">
   <div class="wrap">
     <a href="team.html" class="group wide"><img src="{{ w.photo }}" alt="{{ w.photo_alt }}"></a>
@@ -55,9 +55,9 @@ permalink: index.html
         <a href="team.html" class="mat-cta team-cta">
           <span class="avatars">{% for p in collections.team %}<img src="{{ p.data.photo }}" alt="">{% endfor %}<i></i></span>
           <span class="mat-cta-body">
-            <span class="kicker"{{ attr(w.card_kicker) }}>{{ w.card_kicker.en | safe }}</span>
-            <b{{ attr(w.card_title) }}>{{ w.card_title.en | safe }}</b>
-            <span class="more"{{ attr(w.card_link) }}>{{ w.card_link.en | safe }}</span>
+            <span class="kicker"{{ attr(tc.kicker) }}>{{ tc.kicker.en | safe }}</span>
+            <b{{ attr(tc.title) }}>{{ tc.title.en | safe }}</b>
+            <span class="more"{{ attr(tc.link) }}>{{ tc.link.en | safe }}</span>
           </span>
         </a>
       </div>
