@@ -210,6 +210,88 @@ content:
       - {name: en, label: English, type: string}
       - {name: ka, label: ქართული (Georgian), type: string}
     - {name: form_action, label: Form address (set up by Marina), type: string, description: Where messages are delivered. Leave as it is.}
+- name: news
+  label: What's New
+  type: collection
+  path: src/content/news
+  format: yaml-frontmatter
+  filename: '{year}-{month}-{day}-{hour}{minute}{second}.md'
+  view:
+    primary: title.en
+    fields:
+    - title.en
+    - when.en
+    - order
+    sort:
+    - order
+    default: {sort: order, order: asc}
+  fields:
+  - name: title
+    label: Title
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - {name: order, label: Order (1 = shown first), type: number, description: '1, 2, 3 … To put something in between, use e.g. 2.5'}
+  - {name: example, label: Example placeholder (shows an 'Example' badge), type: boolean}
+  - name: kind
+    label: Type (e.g. Invitation, News, Article)
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - name: when
+    label: Date / when
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
+  - name: image
+    label: Picture (optional)
+    type: image
+    description: Your own picture for the card, e.g. a photo or poster
+    options: {media: images}
+  - {name: link, label: Link (optional), type: string, description: 'Website, registration form, Instagram post …'}
+  - name: document
+    label: Document (optional)
+    type: file
+    description: Upload a PDF or a poster file
+    options: {media: files}
+  - name: picture_choice
+    label: Picture shown on the card
+    type: select
+    options:
+      placeholder: Automatic
+      values:
+      - {name: auto, label: Automatic}
+      - {name: picture, label: My uploaded picture}
+      - {name: document, label: The uploaded document (if it is an image)}
+      - {name: preview, label: Preview picture of the link}
+      - {name: none, label: No picture (plain coloured card)}
+    description: 'Automatic: your picture → else the document if it is an image → else the link''s preview picture → else plain.'
+  - name: click_choice
+    label: Clicking the card opens
+    type: select
+    options:
+      placeholder: Automatic
+      values:
+      - {name: auto, label: Automatic}
+      - {name: link, label: The link}
+      - {name: document, label: The uploaded document}
+      - {name: picture, label: The picture at full size}
+      - {name: none, label: Nothing (card is not clickable)}
+    description: 'Automatic: the link → else the document → else the picture.'
+- name: team_page
+  label: Team page – texts
+  type: file
+  path: src/_data/team_page.json
+  fields:
+  - name: heading
+    label: Page heading
+    type: object
+    fields:
+    - {name: en, label: English, type: string}
+    - {name: ka, label: ქართული (Georgian), type: string}
 - name: team
   label: Team
   type: collection
@@ -223,6 +305,7 @@ content:
     - order
     sort:
     - order
+    default: {sort: order, order: asc}
   fields:
   - name: name
     label: Name
@@ -336,21 +419,21 @@ content:
     fields:
     - {name: en, label: English, type: string}
     - {name: ka, label: ქართული (Georgian), type: string}
-- name: materials
-  label: Materials
+- name: materials_practice
+  label: 'Materials: Practice – tools and exercises'
   type: collection
-  path: src/content/materials
+  path: src/content/practice
   format: yaml-frontmatter
   filename: '{year}-{month}-{day}-{hour}{minute}{second}.md'
   view:
     primary: title.en
     fields:
     - title.en
-    - section
     - status
     - order
     sort:
     - order
+    default: {sort: order, order: asc}
   fields:
   - name: title
     label: Title
@@ -358,13 +441,6 @@ content:
     fields:
     - {name: en, label: English, type: string}
     - {name: ka, label: ქართული (Georgian), type: string}
-  - name: section
-    label: Section
-    type: select
-    options:
-      values:
-      - {name: practice, label: Practice – tools and exercises}
-      - {name: learn, label: Learn more and dive deeper}
   - name: status
     label: Status
     type: select
@@ -372,7 +448,7 @@ content:
       values:
       - {name: available, label: Available}
       - {name: coming_soon, label: Coming soon}
-  - {name: order, label: Order (1 = shown first), type: number, description: 'Order within its section: 1, 2, 3 … (use e.g. 2.5 to put something in between)'}
+  - {name: order, label: Order (1 = shown first), type: number, description: '1, 2, 3 … (use e.g. 2.5 to put something in between)'}
   - name: type
     label: Type label (e.g. Cards, Worksheet, Article)
     type: object
@@ -418,20 +494,21 @@ content:
         - {name: link, label: The link}
         - {name: file, label: The uploaded document}
       description: 'Automatic: the link → else the document.'
-- name: news
-  label: What's New
+- name: materials_learn
+  label: 'Materials: Learn more and dive deeper'
   type: collection
-  path: src/content/news
+  path: src/content/learn
   format: yaml-frontmatter
   filename: '{year}-{month}-{day}-{hour}{minute}{second}.md'
   view:
     primary: title.en
     fields:
     - title.en
-    - when.en
+    - status
     - order
     sort:
     - order
+    default: {sort: order, order: asc}
   fields:
   - name: title
     label: Title
@@ -439,55 +516,59 @@ content:
     fields:
     - {name: en, label: English, type: string}
     - {name: ka, label: ქართული (Georgian), type: string}
-  - {name: order, label: Order (1 = shown first), type: number, description: '1, 2, 3 … To put something in between, use e.g. 2.5'}
-  - {name: example, label: Example placeholder (shows an 'Example' badge), type: boolean}
-  - name: kind
-    label: Type (e.g. Invitation, News, Article)
+  - name: status
+    label: Status
+    type: select
+    options:
+      values:
+      - {name: available, label: Available}
+      - {name: coming_soon, label: Coming soon}
+  - {name: order, label: Order (1 = shown first), type: number, description: '1, 2, 3 … (use e.g. 2.5 to put something in between)'}
+  - name: type
+    label: Type label (e.g. Cards, Worksheet, Article)
     type: object
     fields:
     - {name: en, label: English, type: string}
     - {name: ka, label: ქართული (Georgian), type: string}
-  - name: when
-    label: Date / when
+  - name: description
+    label: Short description
     type: object
     fields:
-    - {name: en, label: English, type: string}
-    - {name: ka, label: ქართული (Georgian), type: string}
-  - name: image
-    label: Picture (optional)
+    - {name: en, label: English, type: text}
+    - {name: ka, label: ქართული (Georgian), type: text}
+  - {name: credit, label: Credit / source line, type: string, description: e.g. Adapted from … · © Author}
+  - name: cover
+    label: Cover image (optional)
     type: image
-    description: Your own picture for the card, e.g. a photo or poster
     options: {media: images}
-  - {name: link, label: Link (optional), type: string, description: 'Website, registration form, Instagram post …'}
-  - name: document
-    label: Document (optional)
-    type: file
-    description: Upload a PDF or a poster file
-    options: {media: files}
-  - name: picture_choice
-    label: Picture shown on the card
-    type: select
-    options:
-      placeholder: Automatic
-      values:
-      - {name: auto, label: Automatic}
-      - {name: picture, label: My uploaded picture}
-      - {name: document, label: The uploaded document (if it is an image)}
-      - {name: preview, label: Preview picture of the link}
-      - {name: none, label: No picture (plain coloured card)}
-    description: 'Automatic: your picture → else the document if it is an image → else the link''s preview picture → else plain.'
-  - name: click_choice
-    label: Clicking the card opens
-    type: select
-    options:
-      placeholder: Automatic
-      values:
-      - {name: auto, label: Automatic}
-      - {name: link, label: The link}
-      - {name: document, label: The uploaded document}
-      - {name: picture, label: The picture at full size}
-      - {name: none, label: Nothing (card is not clickable)}
-    description: 'Automatic: the link → else the document → else the picture.'
+  - name: links
+    label: Buttons (the first one is the main button)
+    type: object
+    list: true
+    fields:
+    - name: label
+      label: Button text
+      type: object
+      fields:
+      - {name: en, label: English, type: string}
+      - {name: ka, label: ქართული (Georgian), type: string}
+      description: e.g. English, ქართული, Open PDF
+    - {name: url, label: Link (optional), type: string, description: 'e.g. a Google Drive link (https://…)'}
+    - name: file
+      label: Document (optional)
+      type: file
+      description: 'Upload a PDF, Word file or image. Large files (over ~10 MB): better use a Drive link.'
+      options: {media: files}
+    - name: use
+      label: Clicking the button opens
+      type: select
+      options:
+        placeholder: Automatic
+        values:
+        - {name: auto, label: Automatic}
+        - {name: link, label: The link}
+        - {name: file, label: The uploaded document}
+      description: 'Automatic: the link → else the document.'
 - name: site
   label: Site settings
   type: file
@@ -519,14 +600,3 @@ content:
       - {name: en, label: English, type: string}
       - {name: ka, label: ქართული (Georgian), type: string}
     - {name: url, label: Link, type: string}
-- name: team_page
-  label: Team page – texts
-  type: file
-  path: src/_data/team_page.json
-  fields:
-  - name: heading
-    label: Page heading
-    type: object
-    fields:
-    - {name: en, label: English, type: string}
-    - {name: ka, label: ქართული (Georgian), type: string}
