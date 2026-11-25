@@ -82,7 +82,7 @@ permalink: index.html
   </div>
 </section>
 
-{% set c = home.contact %}
+{% set c = home.contact %}{% set cf = contact_form %}
 <style>
 #latest{padding-bottom:16px}
 #contact{padding:12px 0 40px;scroll-margin-top:70px}
@@ -103,18 +103,18 @@ permalink: index.html
 </style>
 <section class="block" id="contact">
   <div class="wrap cf-wrap">
-    <h2{{ attr(c.heading) }}>{{ c.heading.en | safe }}</h2>
-    {%- if c.intro.en %}<p class="sub"{{ attr(c.intro) }}>{{ c.intro.en | safe }}</p>{% endif %}
-    {%- set cfAction = c.form_action or ("https://formsubmit.co/ajax/" + c.recipient_email if c.recipient_email else "") %}
+    <h2{{ attr(cf.heading) }}>{{ cf.heading.en | safe }}</h2>
+    {%- if cf.intro.en %}<p class="sub"{{ attr(cf.intro) }}>{{ cf.intro.en | safe }}</p>{% endif %}
+    {%- set cfAction = cf.form_action or ("https://formsubmit.co/ajax/" + c.recipient_email if c.recipient_email else "") %}
     <form class="cf" id="cf" method="POST" action="{{ cfAction }}">
       <input type="hidden" name="_subject" value="New message from the NVC Georgia website">
       <input type="hidden" name="_template" value="table">
-      <label><span{{ attr(c.label_name) }}>{{ c.label_name.en | safe }}</span><input name="name" type="text" required autocomplete="name"></label>
-      <label><span{{ attr(c.label_email) }}>{{ c.label_email.en | safe }}</span><input name="email" type="email" required autocomplete="email"></label>
-      <label class="full"><span{{ attr(c.label_message) }}>{{ c.label_message.en | safe }}</span><textarea name="message" required></textarea></label>
+      <label><span{{ attr(cf.label_name) }}>{{ cf.label_name.en | safe }}</span><input name="name" type="text" required autocomplete="name"></label>
+      <label><span{{ attr(cf.label_email) }}>{{ cf.label_email.en | safe }}</span><input name="email" type="email" required autocomplete="email"></label>
+      <label class="full"><span{{ attr(cf.label_message) }}>{{ cf.label_message.en | safe }}</span><textarea name="message" required></textarea></label>
       <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-      <p class="cf-msg" id="cf-msg" role="status" hidden data-ok-en="{{ c.thanks.en }}" data-ok-ka="{{ c.thanks.ka or c.thanks.en }}" data-err-en="{{ c.error.en }}" data-err-ka="{{ c.error.ka or c.error.en }}"></p>
-      <button class="btn p" type="submit"{{ attr(c.button) }}>{{ c.button.en | safe }}</button>
+      <p class="cf-msg" id="cf-msg" role="status" hidden data-ok-en="{{ c.thanks.en }}" data-ok-ka="{{ c.thanks.ka or c.thanks.en }}" data-err-en="{{ cf.error.en }}" data-err-ka="{{ cf.error.ka or cf.error.en }}"></p>
+      <button class="btn p" type="submit"{{ attr(cf.button) }}>{{ cf.button.en | safe }}</button>
     </form>
   </div>
 </section>
