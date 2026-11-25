@@ -14,8 +14,8 @@
   <div class="nav-in">
     <a href="index.html" class="logo" aria-label="NVC Georgia — NVC საქართველო"><span class="drop"></span><span class="lg-nvc">NVC</span><span class="lg-stack"><span>Georgia</span><span lang="ka">საქართველო</span></span></a>
     <ul class="menu" id="menu">
-{%- for item in site.menu %}
-      <li><a href="{{ item.url }}"{% if item.label.en == active %} class="on"{% endif %} data-ka="{{ item.label.ka or item.label.en }}">{{ item.label.en | safe }}</a></li>
+{%- for item in site.menu %}{% set n = nav[loop.index0] or {} %}
+      <li><a href="{{ n.url or item.url }}"{% if n.page and n.page == active %} class="on"{% endif %} data-ka="{{ item.label.ka or item.label.en }}">{{ item.label.en | safe }}</a></li>
 {%- endfor %}
     </ul>
     <div style="display:flex;gap:12px;align-items:center">

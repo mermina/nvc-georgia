@@ -5,7 +5,7 @@
     "ka": ""
   },
   "draft_notice": {
-    "show": true,
+    "show": false,
     "en": "Mockup · Georgian text is a draft — to be checked by the team",
     "ka": "მაკეტი · ქართული ტექსტი — სამუშაო ვერსია, გუნდმა უნდა გადაამოწმოს"
   },

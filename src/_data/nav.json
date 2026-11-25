@@ -1,0 +1,26 @@
+[
+  {
+    "url": "index.html",
+    "page": "Home"
+  },
+  {
+    "url": "index.html#about-nvc",
+    "page": ""
+  },
+  {
+    "url": "team.html",
+    "page": "Team"
+  },
+  {
+    "url": "materials.html",
+    "page": "Materials"
+  },
+  {
+    "url": "index.html#latest",
+    "page": ""
+  },
+  {
+    "url": "index.html#contact",
+    "page": ""
+  }
+]
