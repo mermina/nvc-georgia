@@ -133,24 +133,6 @@ content:
       fields:
       - {name: en, label: English, type: text}
       - {name: ka, label: ქართული (Georgian), type: text}
-    - name: card_kicker
-      label: Team card – small label
-      type: object
-      fields:
-      - {name: en, label: English, type: string}
-      - {name: ka, label: ქართული (Georgian), type: string}
-    - name: card_title
-      label: Team card – title
-      type: object
-      fields:
-      - {name: en, label: English, type: string}
-      - {name: ka, label: ქართული (Georgian), type: string}
-    - name: card_link
-      label: Team card – link text
-      type: object
-      fields:
-      - {name: en, label: English, type: string}
-      - {name: ka, label: ქართული (Georgian), type: string}
   - name: news_heading
     label: Heading of the What's New section
     type: object
@@ -158,59 +140,16 @@ content:
     - {name: en, label: English, type: string}
     - {name: ka, label: ქართული (Georgian), type: string}
   - name: contact
-    label: Contact form (bottom of the page)
+    label: Contact form
     type: object
     fields:
-    - name: heading
-      label: Heading
-      type: object
-      fields:
-      - {name: en, label: English, type: string}
-      - {name: ka, label: ქართული (Georgian), type: string}
-    - name: intro
-      label: Short line under the heading
-      type: object
-      fields:
-      - {name: en, label: English, type: string}
-      - {name: ka, label: ქართული (Georgian), type: string}
-    - name: label_name
-      label: 'Label: name'
-      type: object
-      fields:
-      - {name: en, label: English, type: string}
-      - {name: ka, label: ქართული (Georgian), type: string}
-    - name: label_email
-      label: 'Label: email'
-      type: object
-      fields:
-      - {name: en, label: English, type: string}
-      - {name: ka, label: ქართული (Georgian), type: string}
-    - name: label_message
-      label: 'Label: message'
-      type: object
-      fields:
-      - {name: en, label: English, type: string}
-      - {name: ka, label: ქართული (Georgian), type: string}
-    - name: button
-      label: Button text
-      type: object
-      fields:
-      - {name: en, label: English, type: string}
-      - {name: ka, label: ქართული (Georgian), type: string}
     - name: thanks
       label: Message after sending
       type: object
       fields:
       - {name: en, label: English, type: string}
       - {name: ka, label: ქართული (Georgian), type: string}
-    - name: error
-      label: Message if sending fails
-      type: object
-      fields:
-      - {name: en, label: English, type: string}
-      - {name: ka, label: ქართული (Georgian), type: string}
     - {name: recipient_email, label: Email that receives messages from the form, type: string, description: 'After changing it, click Activate in the email the new address receives.'}
-    - {name: form_action, label: 'Advanced: form address (leave empty)', type: string, description: Only for a special form service. Empty = messages go to the email above.}
 - name: news
   label: What's New
   type: collection
