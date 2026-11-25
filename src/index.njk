@@ -105,11 +105,14 @@ permalink: index.html
   <div class="wrap cf-wrap">
     <h2{{ attr(c.heading) }}>{{ c.heading.en | safe }}</h2>
     {%- if c.intro.en %}<p class="sub"{{ attr(c.intro) }}>{{ c.intro.en | safe }}</p>{% endif %}
-    <form class="cf" id="cf" method="POST" action="{{ c.form_action }}">
+    {%- set cfAction = c.form_action or ("https://formsubmit.co/ajax/" + c.recipient_email if c.recipient_email else "") %}
+    <form class="cf" id="cf" method="POST" action="{{ cfAction }}">
+      <input type="hidden" name="_subject" value="New message from the NVC Georgia website">
+      <input type="hidden" name="_template" value="table">
       <label><span{{ attr(c.label_name) }}>{{ c.label_name.en | safe }}</span><input name="name" type="text" required autocomplete="name"></label>
       <label><span{{ attr(c.label_email) }}>{{ c.label_email.en | safe }}</span><input name="email" type="email" required autocomplete="email"></label>
       <label class="full"><span{{ attr(c.label_message) }}>{{ c.label_message.en | safe }}</span><textarea name="message" required></textarea></label>
-      <input class="hp" type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
       <p class="cf-msg" id="cf-msg" role="status" hidden data-ok-en="{{ c.thanks.en }}" data-ok-ka="{{ c.thanks.ka or c.thanks.en }}" data-err-en="{{ c.error.en }}" data-err-ka="{{ c.error.ka or c.error.en }}"></p>
       <button class="btn p" type="submit"{{ attr(c.button) }}>{{ c.button.en | safe }}</button>
     </form>
@@ -124,7 +127,7 @@ permalink: index.html
     e.preventDefault();
     if(!f.getAttribute('action')){show('err');return;}
     fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}})
-      .then(function(r){if(r.ok){f.reset();show('ok');}else{show('err');}})
+      .then(function(r){return r.json().catch(function(){return {};}).then(function(j){if(r.ok&&(j.success===true||j.success==='true')){f.reset();show('ok');}else{show('err');}});})
       .catch(function(){show('err');});
   });
 })();
