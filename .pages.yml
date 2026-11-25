@@ -128,10 +128,11 @@ content:
       - {name: ka, label: ქართული (Georgian), type: string}
     - name: heading
       label: Heading
+      description: Press Enter to start a new line
       type: object
       fields:
-      - {name: en, label: English, type: string}
-      - {name: ka, label: ქართული (Georgian), type: string}
+      - {name: en, label: English, type: text}
+      - {name: ka, label: ქართული (Georgian), type: text}
     - name: text
       label: Text
       type: object
