@@ -45,8 +45,12 @@ export default function (eleventyConfig) {
   const byOrder = (a, b) => (a.data.order ?? 0) - (b.data.order ?? 0);
   eleventyConfig.addCollection("team", api => api.getFilteredByGlob("src/content/team/*.md").sort(byOrder));
   eleventyConfig.addCollection("materials", api => {
-    const items = api.getFilteredByGlob("src/content/materials/*.md").sort(byOrder);
-    for (const it of items) for (const l of it.data.links || []) l.href = resolveButton(l);
+    const items = api.getFilteredByGlob(["src/content/practice/*.md", "src/content/learn/*.md"]).sort(byOrder);
+    for (const it of items) {
+      // the folder decides the section: src/content/practice/… or src/content/learn/…
+      it.data.section = it.inputPath.split("/").slice(-2, -1)[0];
+      for (const l of it.data.links || []) l.href = resolveButton(l);
+    }
     return items;
   });
   eleventyConfig.addCollection("news", async api => {
