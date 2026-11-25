@@ -48,7 +48,8 @@ permalink: index.html
     <div class="team-under">
       <div>
         <div class="kicker"{{ attr(w.kicker) }}>{{ w.kicker.en | safe }}</div>
-        <h2{{ attr(w.heading) }}>{{ w.heading.en | safe }}</h2>
+        {%- set whEn = w.heading.en | replace("\n", "<br>") %}{% set whKa = (w.heading.ka or w.heading.en) | replace("\n", "<br>") %}
+        <h2 data-ka="{{ whKa }}">{{ whEn | safe }}</h2>
       </div>
       <div>
         <p class="sub"{{ attr(w.text) }}>{{ w.text.en | safe }}</p>
