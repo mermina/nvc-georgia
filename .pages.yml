@@ -209,7 +209,8 @@ content:
       fields:
       - {name: en, label: English, type: string}
       - {name: ka, label: ქართული (Georgian), type: string}
-    - {name: form_action, label: Form address (set up by Marina), type: string, description: Where messages are delivered. Leave as it is.}
+    - {name: recipient_email, label: Email that receives messages from the form, type: string, description: 'After changing it, click Activate in the email the new address receives.'}
+    - {name: form_action, label: 'Advanced: form address (leave empty)', type: string, description: Only for a special form service. Empty = messages go to the email above.}
 - name: news
   label: What's New
   type: collection
