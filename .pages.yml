@@ -545,21 +545,9 @@ content:
   path: src/_data/site.json
   fields:
   - {name: name, label: Site name, type: string}
-  - name: contact
-    label: Contact line in the footer
-    type: object
-    fields:
-    - {name: en, label: English, type: string}
-    - {name: ka, label: ქართული (Georgian), type: string}
-  - name: draft_notice
-    label: Draft notice (bottom-left)
-    type: object
-    fields:
-    - {name: show, label: Show the notice, type: boolean}
-    - {name: en, label: English, type: string}
-    - {name: ka, label: ქართული (Georgian), type: string}
   - name: menu
-    label: Menu
+    label: Menu (names only)
+    description: Change the wording of the menu items here. Please don't add or remove items.
     type: object
     list: true
     fields:
@@ -569,4 +557,3 @@ content:
       fields:
       - {name: en, label: English, type: string}
       - {name: ka, label: ქართული (Georgian), type: string}
-    - {name: url, label: Link, type: string}
