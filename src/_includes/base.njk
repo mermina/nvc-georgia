@@ -8,11 +8,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&family=Noto+Sans+Georgian:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css?v={{ build.v }}">
+<style>.logo{gap:12px}.logo .lg-bar{height:30px}.logo .lg-kaen{gap:3px;margin-left:0}.logo .lg-kaen span:first-child{font-size:1.02rem}.logo .lg-kaen span:last-child{font-size:.68rem;letter-spacing:.3em}@media (max-width:400px){.logo{gap:9px}.logo .lg-nvc{font-size:1.5rem}.logo .lg-kaen span:first-child{font-size:.9rem}.logo .lg-kaen span:last-child{font-size:.6rem}}</style>
 </head>
 <body>
 <nav>
   <div class="nav-in">
-    <a href="index.html" class="logo" aria-label="NVC Georgia — NVC საქართველო"><span class="drop"></span><span class="lg-nvc">NVC</span><span class="lg-stack"><span>Georgia</span><span lang="ka">საქართველო</span></span></a>
+    <a href="index.html" class="logo" aria-label="NVC Georgia — NVC საქართველო"><span class="lg-nvc">NVC</span><span class="lg-bar"></span><span class="lg-kaen"><span lang="ka">საქართველო</span><span>GEORGIA</span></span></a>
     <ul class="menu" id="menu">
 {%- for item in site.menu %}{% set n = nav[loop.index0] or {} %}
       <li><a href="{{ n.url or item.url }}"{% if n.page and n.page == active %} class="on"{% endif %} data-ka="{{ item.label.ka or item.label.en }}">{{ item.label.en | safe }}</a></li>
